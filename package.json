@@ -1,6 +1,6 @@
 {
   "name": "@frctl/readr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Recursively list all files and directories within a target directory.",
   "homepage": "https://github.com/frctl/readr",
   "repository": "https://github.com/frctl/readr",
