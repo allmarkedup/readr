@@ -10,7 +10,7 @@ module.exports = function read(dir, filter) {
         const filePath = path.join(dir, name);
         return stat(filePath).then(stats => {
             if (stats.isDirectory()) {
-                return read(filePath).then(paths => {
+                return read(filePath, filter).then(paths => {
                     if (filter(filePath, stats)) {
                         return [filePath, ...paths];
                     }

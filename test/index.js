@@ -1,3 +1,4 @@
+const path = require('path');
 const chai = require('chai');
 const mock = require('mock-fs');
 const expect = chai.expect;
@@ -40,11 +41,21 @@ describe('readr', function(){
     });
 
     it('ignores filtered files', function(){
-        const filter = (path, stat) => stat.isFile();
+        const filter = (filePath, stat) => stat.isFile();
         const result = readr('test/target', filter).then(files => files.sort())
         return expect(result).to.eventually.eql([
             'test/target/nested/example.txt',
             'test/target/test.json',
+        ].sort());
+    });
+
+    it('ignores nested filtered files', function(){
+        const filter = (filePath, stat) => path.extname(filePath) !== '.txt';
+        const result = readr('test/target', filter).then(files => files.sort())
+        return expect(result).to.eventually.eql([
+            'test/target/nested',
+            'test/target/test.json',
+            'test/target/subdir',
         ].sort());
     });
 
