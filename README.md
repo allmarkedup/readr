@@ -27,7 +27,6 @@ readr('path/to/files').then(files => {
 });
 ```
 
-<!--
 You can also provide a filter function to ignore certain files:
 
 ```js
@@ -39,7 +38,6 @@ readr('path/to/files', filter).then(files => {
     console.log(files); // no directories here!
 });
 ```
--->
 
 ## Requirements
 
