@@ -17,8 +17,6 @@
     "testlint": "npm run lint && npm run test",
     "lint": "xo",
     "lint:fix": "xo --fix",
-    "generate:docs": "jsdoc src/*",
-    "preversion": "npm run generate:docs",
     "release": "np"
   },
   "devDependencies": {
